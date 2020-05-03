@@ -1,0 +1,163 @@
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>ADD Address</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>RETAILER ID: </label>
+
+            <input required minlength="5" type="number" #retailerIdRef='ngModel' name="retailerId" ngModel class="form-control">
+
+            <div *ngIf='retailerIdRef.errors && retailerIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!retailerIdRef.errors.required'> Provide Retailer Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>Address ID: </label>
+
+            <input required minlength="5" type="number" #addressIdRef='ngModel' name="addressId" ngModel class="form-control">
+
+            <div *ngIf='addressIdRef.errors && addressIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!addressIdRef.errors.required'> Provide Address Id </div>
+
+            </div>
+
+        </div>
+ <div class="form-group">
+
+            <label>HOUSE NUMBER: </label>
+
+            <input required minlength="20" type="text" #housenumberRef='ngModel' name="housenumber" ngModel class="form-control">
+
+            <div *ngIf='housenumberRef.errors
+                        && housenumberRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!housenumberRef.errors.required'>
+
+                    Provide House Number
+
+                </div>
+
+                <div *ngIf='housenumberRef.errors.pattern'>Minimum of 20 characters length</div>
+
+            </div>
+
+        </div>
+
+<div class="form-group">
+
+            <label>STREET NUMBER: </label>
+
+            <input required minlength="20" type="text" #streetnumberRef='ngModel' name="streetnumber" ngModel class="form-control">
+
+            <div *ngIf='streetnumberRef.errors
+                        && streetnumberRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!streetnumberRef.errors.required'>
+
+                    Provide Street Number
+
+                </div>
+
+                <div *ngIf='streetnumberRef.errors.pattern'>Minimum of 20 characters length</div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>CITY: </label>
+
+            <input required minlength="20" type="text" #cityRef='ngModel' name="city" ngModel class="form-control">
+
+            <div *ngIf='cityRef.errors
+                        && cityRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!cityRef.errors.required'>
+
+                    Provide City
+
+                </div>
+
+                <div *ngIf='cityRef.errors.pattern'>Minimum of 20 characters length</div>
+
+            </div>
+
+        </div>
+<div class="form-group">
+
+            <label>DISTRICT: </label>
+
+            <input required minlength="20" type="text" #districtRef='ngModel' name="district" ngModel class="form-control">
+
+            <div *ngIf='districtRef.errors
+                        && districtRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!districtRef.errors.required'>
+
+                    Provide District
+
+                </div>
+
+                <div *ngIf='districtRef.errors.pattern'>Minimum of 20 characters length</div>
+
+            </div>
+
+        </div>
+<div class="form-group">
+
+            <label>STATE: </label>
+
+            <input required minlength="20" type="text" #stateRef='ngModel' name="state" ngModel class="form-control">
+
+            <div *ngIf='stateRef.errors
+                        && stateRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!stateRef.errors.required'>
+
+                    Provide State
+
+                </div>
+
+                <div *ngIf='stateRef.errors.pattern'>Minimum of 20 characters length</div>
+
+            </div>
+
+        </div>
+<div class="form-group">
+
+            <label>PINCODE: </label>
+
+            <input required minlength="6" type="number" #pincodeRef='ngModel' name="pincode" ngModel class="form-control">
+
+            <div *ngIf='pincodeRef.errors && pincodeRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!pincodeRef.errors.required'> Provide Pincode </div>
+
+            </div>
+
+        </div>
+
+        
+        <input [disabled]="userForm.invalid" type="submit" value="Add Address" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

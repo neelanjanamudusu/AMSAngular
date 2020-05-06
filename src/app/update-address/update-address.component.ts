@@ -14,12 +14,15 @@ export class UpdateAddressComponent implements OnInit {
   message: string;
   constructor(private myservice: MyserviceService, private router: Router) {
     this.obj1 = this.myservice.updateMethod();
+    
   }
   onUpdate(uaddress: AddressManagement): any {
-    return this.myservice.onUpdate(uaddress).subscribe(data => {
-    message:data});
+     return this.myservice.onUpdate(uaddress).subscribe(data => {
+    alert(data)});
+  
   }
   ngOnInit(): void {
+    
   }
 
 

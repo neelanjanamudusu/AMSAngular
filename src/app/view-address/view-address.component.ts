@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService ,AddressManagement} from '../myservice.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-view-address',
   templateUrl: './view-address.component.html',
@@ -9,35 +8,38 @@ import { Router } from '@angular/router';
 })
 export class ViewAddressComponent implements OnInit {
   [x: string]: any;
-
   message: string;
-  addressmanagement: AddressManagement;
+  public addressmanagement: AddressManagement[];
   constructor(private myservice: MyserviceService, private router: Router) {
   }
-
-  address:AddressManagement;
   retailerId:number;
-  
   ngOnInit(): void 
  {
-   let retailerId=this.routing.snapshot.paramMap.get('retailerId');
-   let retailerIdnum=Number(retailerId)
-   this.service.viewproduct(retailerIdnum).subscribe(
-   response =>this.handleSuccessfulResponse(response),
-  );
+  
 }
-  handleSuccessfulResponse(response) {
-    this.addressmanagement = response;
-  }
   update(updateaddress: AddressManagement) {
     this.myservice.updateAddress(updateaddress);
-    this.router.navigate(['/updateproduct']);
+    this.router.navigate(['/updateaddress']);
   }
-  delete(deleteaddress: AddressManagement): any {
-    this.myservice.delete(deleteaddress.retailerId).subscribe(data => {
+  delete(address:AddressManagement): any {
+    console.log(address.addressId);
+    this.myservice.delete(address.addressId).subscribe(data => {
       alert(data)});
-    this.router.navigate(['/viewaddress']);
+    
+  }
+  tofetch(retailerId:number){
+    console.log(retailerId);
+      this.myservice.tofetch(retailerId).subscribe(
+      response =>this.handleSuccessfulResponse(response),
+    
+  
+     );
   }
 
+  handleSuccessfulResponse(response) {
+    this.addressmanagement = response;
+    console.log(response);
+    
+  }
 
 }

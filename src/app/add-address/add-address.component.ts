@@ -9,16 +9,23 @@ import { MyserviceService, AddressManagement } from '../myservice.service';
   styleUrls: ['./add-address.component.css']
 })
 export class AddAddressComponent implements OnInit {
+  [x: string]: any;
+  obj2:any;
   message: string;
-
-  constructor(private myservice: MyserviceService,private router: Router) { }
+  addressmanagement: AddressManagement;
+  constructor(private myservice: MyserviceService,private router: Router) {
+    // this.obj2 = this.myservice.addMethod();
+   }
 
   ngOnInit(): void {
   }
   onSubmit(addaddress:AddressManagement):any{
     console.log(addaddress);
-     this.myservice.addAddress(addaddress).subscribe(data => {
-      message:data});
+     this.myservice.onSubmit(addaddress).subscribe( data => {alert(data)});
+     this.router.navigate(['']);
+  }
+  handleSuccessfulResponse(response: any) {
+    this.addressmanagement = response;
   }
 
 }

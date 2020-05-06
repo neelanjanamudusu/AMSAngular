@@ -1,61 +1,67 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 @Injectable({
-  providedIn: 'root'
-})
+    providedIn: 'root'
+  })
 export class MyserviceService {
-  AddressManagement: AddressManagement;
-  updateaddress: AddressManagement;
-  constructor(private httpService: HttpClient) { }
-  public getAddress(retailerId: number) {
-    console.log("ins service get product");
-    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get<AddressManagement>("http://localhost:4800/AddressManagement/GetAddress"+retailerId,{headers, responseType:'json'});
-  }
-
-  public addAddress(addaddress: AddressManagement) {
-    console.log("ins service add");
-    console.log(addaddress);
-    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.post("http://localhost:4800/AddressManagement/AddAddress", addaddress,  { headers, responseType: 'json'});
-  }
+    updateaddress: AddressManagement;
+    addaddress: AddressManagement;
+    AddressManagement: AddressManagement;
+    constructor(private httpService: HttpClient) { }
   
-  public updateAddress(updateaddress: AddressManagement) {
-    this.updateaddress = updateaddress;
+    public tofetch(retailerId: number) {
+    console.log("ins service get address");
+    console.log(retailerId);
+    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+    return this.httpService.get<AddressManagement>("http://localhost:4870/AddressManagement/GetAddress/"+retailerId,{headers, responseType:'json'});
+  }
+  public addAddress(addaddress: AddressManagement) {
+    this.addaddress = addaddress;
+  }
+  public addMethod() {
+    return this.addAddress;
+  }
+  public onSubmit(addAddress: AddressManagement) {
+    console.log("ins service add");
+    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+    return this.httpService.post("http://localhost:4870/AddressManagement/AddAddress", addAddress,  { headers, responseType: 'json'});
+  }
+  public updateAddress(updateAddress: AddressManagement) {
+    this.updateaddress = updateAddress;
   }
   public updateMethod() {
-    return this.updateaddress;
+    return this.updateAddress;
   }
-  public onUpdate(updateaddress: AddressManagement) {
+  public onUpdate(updateAddress: AddressManagement) {
     console.log("ins service update");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.put("http://localhost:4800/AddressManagement/UpdateAddress", updateaddress,  { headers, responseType: 'json'});
+    return this.httpService.put("http://localhost:4870/AddressManagement/UpdateAddress", updateAddress,  { headers, responseType: 'json'});
   }
-  delete(retailerId: number) {
+  delete(addressId: number) {
     console.log("ins service delete");
+    console.log(addressId);
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.delete("http://localhost:4800/AddressManagement/DeleteAddress/" + retailerId,  { headers, responseType: 'json'});
+    return this.httpService.delete("http://localhost:4870/AddressManagement/DeleteAddress/"+addressId,  { headers, responseType: 'json'});
   }
 }
 export class AddressManagement {
-  retailerId: number;
-  addressId: number;
-  housenumber: string;
-  streetnumber: string;
-  city: string;
-  district: string;
-  state: string;
-  pincode: number;
-  constructor(retailerId: number, addressId: number, housenumber: string, streetnumber: string, city: string, district: string, state: string, pincode: number)
-  {
-    this.retailerId=retailerId;
-    this.addressId=addressId;
-    this.housenumber=housenumber;
-    this.streetnumber= streetnumber;
-    this.city= city;
-    this.district=district;
-    this.state= state;
-    this.pincode=pincode;
+    addressId: number;
+    city: string;
+    district: string;
+    housenumber: string;
+    pincode: number;
+    retailerId: number;
+    state: string;
+    streetnumber: string;
+    constructor( addressId: number, city: string, district: string, housenumber: string, pincode: number, retailerId: number, state: string, streetnumber: string)
+    {
+        this.addressId=addressId;
+        this.city=city;
+        this.district=district;
+        this.housenumber=housenumber;
+        this.pincode=pincode;
+        this.retailerId=retailerId;
+        this.state=state;
+        this.streetnumber=streetnumber;
+    }
   }
-}

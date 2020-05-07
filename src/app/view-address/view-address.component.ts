@@ -11,8 +11,11 @@ export class ViewAddressComponent implements OnInit {
   message: string;
   public addressmanagement: AddressManagement[];
   constructor(private myservice: MyserviceService, private router: Router) {
+    this.status=false;
   }
+ 
   retailerId:number;
+  status: boolean;
   ngOnInit(): void 
  {
   
@@ -24,22 +27,41 @@ export class ViewAddressComponent implements OnInit {
   delete(address:AddressManagement): any {
     console.log(address.addressId);
     this.myservice.delete(address.addressId).subscribe(data => {
-      alert(data)});
+      alert(data)}
+    );
     
   }
   tofetch(retailerId:number){
     console.log(retailerId);
-      this.myservice.tofetch(retailerId).subscribe(
-      response =>this.handleSuccessfulResponse(response),
-    
-  
-     );
-  }
+    this.validate(retailerId);
+  //   if(this.status == true){
+  //     this.myservice.tofetch(retailerId).subscribe(
+  //     response =>this.handleSuccessfulResponse(response),
+  //    );
+  // }
+}
 
   handleSuccessfulResponse(response) {
+    this.status=true;
     this.addressmanagement = response;
-    console.log(response);
+    
     
   }
+
+validate(retailerId:number)
+{
+  //console.log(retailerId);
+  if(retailerId != null){
+
+   this.status=true;
+   this.myservice.tofetch(retailerId).subscribe(
+    response =>this.handleSuccessfulResponse(response),
+   );
+  }
+   else{ 
+   this.status=false;
+   this.messag="not valid retailerId";
+   }
+}
 
 }

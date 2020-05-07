@@ -1,25 +1,27 @@
 <div class="container">
    
     <div class="form-group">
-        <label>RETAILER ID: </label>
-        <input required minlength="5" type="number" #retailerIdRef='ngModel' name="retailerId" [(ngModel)]="retailerId" ngModel class="form-control">
-             <button class="btn btn-primary" (click)="tofetch(retailerId)">Submit</button>
+        <label>Retailer ID: </label>
+        <input required minlength="1" maxlength="19" type="number" #retailerIdRef='ngModel' name="retailerId" [(ngModel)]="retailerId" ngModel class="form-control">
+             <div *ngIf='retailerIdRef.errors && retailerIdRef.touched' class="alert alert-danger">
+                <div [hidden]='!retailerIdRef.errors.required'>provide Retailer Id</div>
+            <div *ngIf='retailerIdRef.errors.pattern'>Name should be maxmimum of 5 characters length</div>
+            </div>
+            <button class="btn btn-primary" (click)="tofetch(retailerId)">Submit</button>
     </div>
+  
+    <table class="table table-striped container" *ngIf="addressmanagement && addressmanagement.length > 0">
 
-    <table class="table table-hover" >
         <thead>
         <tr>
-            <th>ADDRESS ID</th>
-            <th>RETAILOR ID</th>
-            <th>HOUSE NUMBER</th>
-            <th>STREET NUMBER</th>
-            <th>CITY</th>
-            <th>DISTRICT</th>
-            
-            
-            
-            <th>STATE</th>
-            <th>PINCODE</th>
+            <th>Address ID</th>
+            <th>Retailor ID</th>
+            <th>House Number</th>
+            <th>Street Number</th>
+            <th>City</th>
+            <th>District</th>   
+            <th>State</th>
+            <th>Pincode</th>
     
         </tr>
         </thead>
@@ -43,6 +45,8 @@
             </tr>
         </tbody>
     </table>
-  
-
+</div>
+<div *ngIf="status">
+    <h4 *ngIf="addressmanagement.length < 1">No Records Found</h4>
+  </div>
     

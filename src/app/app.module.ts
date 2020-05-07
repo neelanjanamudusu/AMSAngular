@@ -9,12 +9,14 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MyserviceService } from './myservice.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AddAddressComponent,
     ViewAddressComponent,
-    UpdateAddressComponent
+    UpdateAddressComponent,
+ 
   ],
   imports: [
     BrowserModule,

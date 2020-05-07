@@ -6,10 +6,12 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
 
 
 
+
 const routes: Routes = [
 {path:'viewaddress',component:ViewAddressComponent},
 {path:'addaddress',component:AddAddressComponent},
 {path:'updateaddress',component:UpdateAddressComponent}
+
 ];
 
 @NgModule({

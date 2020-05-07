@@ -17,8 +17,9 @@ export class UpdateAddressComponent implements OnInit {
     
   }
   onUpdate(uaddress: AddressManagement): any {
-     return this.myservice.onUpdate(uaddress).subscribe(data => {
+     this.myservice.onUpdate(uaddress).subscribe(data => {
     alert(data)});
+    this.router.navigate(['/viewaddress']);
   
   }
   ngOnInit(): void {

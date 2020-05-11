@@ -13,7 +13,7 @@ export class MyserviceService {
     console.log("ins service get address");
     console.log(retailerId);
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get<AddressManagement>("http://localhost:4870/View/GetAddress/"+retailerId,{headers, responseType:'json'});
+    return this.httpService.get<AddressManagement>("http://localhost:4870/AddressManagement/GetAddress/"+retailerId,{headers, responseType:'json'});
   }
   public addAddress(addaddress: AddressManagement) {
     this.addaddress = addaddress;
@@ -24,7 +24,7 @@ export class MyserviceService {
   public onSubmit(addAddress: AddressManagement) {
     console.log("ins service add");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.post<AddressManagement>("http://localhost:4870/Add/AddAddress", addAddress,  { headers, responseType: 'json'});
+    return this.httpService.post<AddressManagement>("http://localhost:4870/AddressManagement/AddAddress", addAddress,  { headers, responseType: 'json'});
   }
   public updateAddress(updateAddress: AddressManagement) {
     this.updateaddress = updateAddress;
@@ -35,13 +35,13 @@ export class MyserviceService {
   public onUpdate(updateAddress: AddressManagement) {
     console.log("ins service update");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.put("http://localhost:4870/Update/UpdateAddress", updateAddress,  { headers, responseType: 'json'});
+    return this.httpService.put("http://localhost:4870/AddressManagement/UpdateAddress", updateAddress,  { headers, responseType: 'json'});
   }
   delete(addressId: number) {
     console.log("ins service delete");
     console.log(addressId);
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.delete("http://localhost:4870/Delete/DeleteAddress/"+addressId,  { headers, responseType: 'json'});
+    return this.httpService.delete("http://localhost:4870/AddressManagement/DeleteAddress/"+addressId,  { headers, responseType: 'json'});
   }
 }
 export class AddressManagement {
@@ -53,12 +53,12 @@ export class AddressManagement {
     retailerId: number;
     state: string;
     streetnumber: string;
-    constructor( addressId: number, city: string, district: string, buildingnumber: string, pincode: number, retailerId: number, state: string, streetnumber: string)
+    constructor( addressId: number, buildingnumber: string, city: string, district: string,  pincode: number, retailerId: number, state: string, streetnumber: string)
     {
         this.addressId=addressId;
+        this.buildingnumber=buildingnumber;
         this.city=city;
         this.district=district;
-        this.buildingnumber=buildingnumber;
         this.pincode=pincode;
         this.retailerId=retailerId;
         this.state=state;

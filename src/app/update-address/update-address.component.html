@@ -1,17 +1,18 @@
 <div class="container">
         <h3>UPDATE Address</h3>
+        
     <form #userForm="ngForm" (ngSubmit)='onUpdate(userForm.value)'>
         <div class="form-group">
             <label>Address ID: </label>
-            <input required minlength="1" maxlength="10" type="number" #addressIdRef='ngModel' name="addressId" ngModel class="form-control">
+            <input required minlength="1" maxlength="5" type="number" #addressIdRef='ngModel' name="addressId" ngModel class="form-control">
             <div *ngIf='addressIdRef.errors && addressIdRef.touched' class="alert alert-danger">
                 <div [hidden]='!addressIdRef.errors.required'> Provide Address Id </div>
             </div>
             
-        </div>
+        </div> 
         <div class="form-group">
             <label>City: </label>
-            <input required minlength="1" maxlength="10" type="text" pattern="^[A-z0-9_]+$" #cityRef='ngModel' name="city" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text" pattern="^[A-z0-9_]+$" #cityRef='ngModel' name="city" ngModel class="form-control">
             <div *ngIf='cityRef.errors && cityRef.touched' class="alert alert-danger">
                 <div [hidden]='!cityRef.errors.required'> provider City </div>
             </div>
@@ -19,23 +20,23 @@
         </div>
         <div class="form-group">
             <label>District: </label>
-            <input required minlength="1" maxlength="10" type="text" pattern="^[A-z0-9_]+$" #districtRef='ngModel' name="district" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text" pattern="^[A-z0-9_]+$" #districtRef='ngModel' name="district" ngModel class="form-control">
             <div *ngIf='districtRef.errors && districtRef.touched' class="alert alert-danger">
                 <div [hidden]='!districtRef.errors.required'> provide District </div>
             </div>
             
         </div>
         <div class="form-group">
-            <label>House Number: </label>
-            <input required minlength="1" maxlength="50" type="text" pattern="^[A-z0-9_]+$" #housenumberRef='ngModel' name="housenumber" ngModel class="form-control">
-            <div *ngIf='housenumberRef.errors && housenumberRef.touched' class="alert alert-danger">
-                <div [hidden]='!housenumberRef.errors.required'> provide House Number </div>
+            <label>Building Number: </label>
+            <input required minlength="1" maxlength="50" type="text" pattern="^[A-z0-9_]+$" #buildingnumberRef='ngModel' name="buildingnumber" ngModel class="form-control">
+            <div *ngIf='buildingnumberRef.errors && buildingnumberRef.touched' class="alert alert-danger">
+                <div [hidden]='!buildingnumberRef.errors.required'> provide House Number </div>
             </div>
             
         </div>
         <div class="form-group">
             <label>Pincode: </label>
-            <input required minlength="1" maxlength="19" type="number" #pincodeRef='ngModel' name="pincode" ngModel class="form-control">
+            <input required minlength="1" maxlength="10" type="number" #pincodeRef='ngModel' name="pincode" ngModel class="form-control">
             <div *ngIf='pincodeRef.errors && pincodeRef.touched' class="alert alert-danger">
                 <div [hidden]='!pincodeRef.errors.required'> provide Pincode </div>
             </div>
@@ -43,14 +44,14 @@
         </div>
         <div class="form-group">
             <label>Retailer ID: </label>
-            <input required minlength="1" maxlenght="10" type="number"  #retailerIdRef='ngModel' name="retailerId" ngModel class="form-control">
+            <input required minlength="1" maxlenght="5" type="number"  #retailerIdRef='ngModel' name="retailerId" ngModel class="form-control">
             <div *ngIf='retailerIdRef.errors && retailerIdRef.touched' class="alert alert-danger">
                 <div [hidden]='!retailerIdRef.errors.required'>provide Retailer Id</div>
             </div>
         </div>
         <div class="form-group">
             <label>State: </label>
-            <input required minlength="1" maxlength="15" type="text"pattern="^[A-z0-9_]+$"  #stateRef='ngModel' name="state" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text"pattern="^[A-z0-9_]+$"  #stateRef='ngModel' name="state" ngModel class="form-control">
             <div *ngIf='stateRef.errors && stateRef.touched' class="alert alert-danger">
                 <div [hidden]='!stateRef.errors.required'> provide state </div>
             </div>
@@ -58,7 +59,7 @@
         </div>
         <div class="form-group">
             <label>Street Number: </label>
-            <input required minlength="1" maxlength="30" type="text"pattern="^[A-z0-9_]+$" #streetnumberRef='ngModel' name="streetnumber" ngModel class="form-control">
+            <input required minlength="1" maxlength="50" type="text"  #streetnumberRef='ngModel' name="streetnumber" ngModel class="form-control">
             <div *ngIf='streetnumberRef.errors && streetnumberRef.touched' class="alert alert-danger">
                 <div [hidden]='!streetnumberRef.errors.required'>provide street number </div>
             </div>

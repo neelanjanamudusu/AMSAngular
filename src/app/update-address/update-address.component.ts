@@ -17,10 +17,14 @@ export class UpdateAddressComponent implements OnInit {
     
   }
   onUpdate(uaddress: AddressManagement): any {
+    console.log(uaddress.retailerId)
      this.myservice.onUpdate(uaddress).subscribe(data => {
-    alert(data)});
+       if(data!=null)
+           alert("Updated address detailes for retailerId: "+uaddress.retailerId)
+        else
+          alert("Update unsuccessful because of invalid ")
     this.router.navigate(['/viewaddress']);
-  
+     });
   }
   ngOnInit(): void {
     

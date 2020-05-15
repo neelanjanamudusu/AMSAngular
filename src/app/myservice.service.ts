@@ -24,7 +24,7 @@ export class MyserviceService {
   public onSubmit(addAddress: AddressManagement) {
     console.log("ins service add");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.post<AddressManagement>("http://localhost:4870/AddressManagement/AddAddress", addAddress,  { headers, responseType: 'json'});
+    return this.httpService.post("http://localhost:4870/AddressManagement/AddAddress", addAddress,  { headers, responseType: 'text'});
   }
   public updateAddress(updateAddress: AddressManagement) {
     this.updateaddress = updateAddress;
@@ -35,7 +35,7 @@ export class MyserviceService {
   public onUpdate(updateAddress: AddressManagement) {
     console.log("ins service update");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.put("http://localhost:4870/AddressManagement/UpdateAddress", updateAddress,  { headers, responseType: 'json'});
+    return this.httpService.put("http://localhost:4870/AddressManagement/UpdateAddress", updateAddress,  { headers, responseType: 'text'});
   }
   delete(addressId: number) {
     console.log("ins service delete");
@@ -47,8 +47,8 @@ export class MyserviceService {
 export class AddressManagement {
     addressId: number;
     city: string;
-    district: string;
     buildingnumber: string;
+    district: string;
     pincode: number;
     retailerId: number;
     state: string;

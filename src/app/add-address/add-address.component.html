@@ -1,14 +1,6 @@
 <div class="container">
         <h3>ADD Address</h3>
     <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>     
-    <!-- <div class="form-group">
-        <label>Address ID: </label>
-        <input required minlength="1" maxlength="5" type="number" #addressIdRef='ngModel' name="addressId" [(ngModel)]="addressId" ngModel class="form-control">
-        <div *ngIf='addressIdRef.errors && addressIdRef.touched' class="alert alert-danger">
-            <div [hidden]='!addressIdRef.errors.required'> Provide Address Id </div>
-        </div> 
-       
-    </div>--->
     <div class="form-group">
         <label>Buliding Number: </label>
         <input required minlength="1" maxlength="50" type="text" #buildingnumberRef='ngModel' name="buildingnumber" [(ngModel)]="buildingnumber" ngModel class="form-control">

@@ -29,8 +29,8 @@ export class ViewAddressComponent implements OnInit {
   }
   delete(address:AddressManagement): any {
     console.log(address.addressId);
-    this.myservice.delete(address.addressId).subscribe(data => {
-      alert(data)}
+    this.myservice.delete(address.addressId).subscribe(Response=> {
+      alert(Response)}
     );
     
   }

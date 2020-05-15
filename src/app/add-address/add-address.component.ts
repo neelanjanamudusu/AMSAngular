@@ -21,7 +21,7 @@ export class AddAddressComponent implements OnInit {
     console.log(addaddress);
      this.myservice.onSubmit(addaddress).subscribe( data => {
     if(data!=null)
-      alert("addedd address successfully eith AddressId:"+data.addressId)
+      alert("addedd address successfully")
     else
       alert("adding address failed")
 

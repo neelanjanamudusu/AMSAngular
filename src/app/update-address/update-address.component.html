@@ -10,7 +10,7 @@
             </div>
         <div class="form-group">
                 <label>Building Number: </label>
-                <input required minlength="1" maxlength="50" type="text" pattern="^[A-z0-9_]+$" #buildingnumberRef='ngModel' name="buildingnumber" ngModel class="form-control">
+                <input required minlength="1" maxlength="50" type="text" #buildingnumberRef='ngModel' name="buildingnumber" ngModel class="form-control">
                 <div *ngIf='buildingnumberRef.errors && buildingnumberRef.touched' class="alert alert-danger">
                     <div [hidden]='!buildingnumberRef.errors.required'> provide House Number </div>
                 </div>
@@ -19,7 +19,7 @@
         </div> 
         <div class="form-group">
             <label>City: </label>
-            <input required minlength="1" maxlength="30" type="text" pattern="^[A-z0-9_]+$" #cityRef='ngModel' name="city" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text" #cityRef='ngModel' name="city" ngModel class="form-control">
             <div *ngIf='cityRef.errors && cityRef.touched' class="alert alert-danger">
                 <div [hidden]='!cityRef.errors.required'> provider City </div>
             </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label>District: </label>
-            <input required minlength="1" maxlength="30" type="text" pattern="^[A-z0-9_]+$" #districtRef='ngModel' name="district" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text" #districtRef='ngModel' name="district" ngModel class="form-control">
             <div *ngIf='districtRef.errors && districtRef.touched' class="alert alert-danger">
                 <div [hidden]='!districtRef.errors.required'> provide District </div>
             </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
             <label>State: </label>
-            <input required minlength="1" maxlength="30" type="text"pattern="^[A-z0-9_]+$"  #stateRef='ngModel' name="state" ngModel class="form-control">
+            <input required minlength="1" maxlength="30" type="text" #stateRef='ngModel' name="state" ngModel class="form-control">
             <div *ngIf='stateRef.errors && stateRef.touched' class="alert alert-danger">
                 <div [hidden]='!stateRef.errors.required'> provide state </div>
             </div>

@@ -22,7 +22,7 @@ export class UpdateAddressComponent implements OnInit {
        if(data!=null)
            alert("Updated address detailes for retailerId: "+uaddress.retailerId)
         else
-          alert("Update unsuccessful because of invalid ")
+          alert("Update unsuccessful because of invalid addressId")
     this.router.navigate(['/viewaddress']);
      });
   }

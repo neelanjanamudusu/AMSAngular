@@ -13,7 +13,7 @@ export class MyserviceService {
     console.log("ins service get address");
     console.log(retailerId);
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get<AddressManagement>("http://localhost:4870/AddressManagement/GetAddress/"+retailerId,{headers, responseType:'json'});
+    return this.httpService.get<AddressManagement>("http://localhost:2099/View/GetAddress/"+retailerId,{headers, responseType:'json'});
   }
   public addAddress(addaddress: AddressManagement) {
     this.addaddress = addaddress;
@@ -24,7 +24,7 @@ export class MyserviceService {
   public onSubmit(addAddress: AddressManagement) {
     console.log("ins service add");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.post("http://localhost:4870/AddressManagement/AddAddress", addAddress,  { headers, responseType: 'text'});
+    return this.httpService.post("http://localhost:2021/Add/AddAddress", addAddress,  { headers, responseType: 'text'});
   }
   public updateAddress(updateAddress: AddressManagement) {
     this.updateaddress = updateAddress;
@@ -35,13 +35,13 @@ export class MyserviceService {
   public onUpdate(updateAddress: AddressManagement) {
     console.log("ins service update");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.put("http://localhost:4870/AddressManagement/UpdateAddress", updateAddress,  { headers, responseType: 'text'});
+    return this.httpService.put("http://localhost:2066/Update/UpdateAddress", updateAddress,  { headers, responseType: 'text'});
   }
   delete(addressId: number) {
     console.log("ins service delete");
     console.log(addressId);
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.delete("http://localhost:4870/AddressManagement/DeleteAddress/"+addressId,  { headers, responseType: 'json'});
+    return this.httpService.delete("http://localhost:2023/Delete/DeleteAddress/"+addressId,  { headers, responseType: 'json'});
   }
 }
 export class AddressManagement {
